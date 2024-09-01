@@ -1,0 +1,23 @@
+.container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.scrollBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+}
+
+.reactIcons {
+  color: rgb(0, 0, 255);
+  width: 4em;
+  height: 4em;
+}
