@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import SearchBar from "../SearchBar/SearchBar";
-/* import ImageGallery from "../ImageGallery/ImageGallery";
+import ImageGallery from "../ImageGallery/ImageGallery";
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "../ImageModal/ImageModal";
-import { fetchPicturesWithQuery } from "../../unsplash-api";
-import { IoArrowUpCircleSharp } from "react-icons/io5"; */
+import { fetchPicturesWithQuery } from "../unsplash-api";
+import { IoArrowUpCircleSharp } from "react-icons/io5";
 import css from "./App.module.css";
 
 export default function App() {
@@ -68,19 +68,13 @@ export default function App() {
     setSelectedImage(null);
   };
 
-  const scrollToTop = () => {
-    if (searchBarRef.current) {
-      searchBarRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   const shouldShowLoadMore =
     pictures.length > 0 && page < totalPages && !loading;
 
   return (
     <div className={css.container}>
       <SearchBar onSearch={handleSearch} ref={searchBarRef} />
-      {/* {pictures.length > 0 && (
+      {pictures.length > 0 && (
         <ImageGallery
           items={pictures}
           onImageClick={openModal}
@@ -90,14 +84,11 @@ export default function App() {
       {shouldShowLoadMore && <LoadMoreBtn onClick={loadMorePictures} />}
       {loading && <Loader />}
       {error && <ErrorMessage />}
-      <button onClick={scrollToTop} className={css.scrollBtn}>
-        <IoArrowUpCircleSharp className={css.reactIcons} />
-      </button>
       <ImageModal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         imageData={selectedImage}
-      /> */}
+      />
     </div>
   );
 }

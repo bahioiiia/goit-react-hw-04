@@ -41,7 +41,7 @@ h1 {
 }
 
 input {
-  height: 30px;
+  height: 26px;
   border: 2px solid currentColor;
   transition: border-color 250ms linear;
   outline: none;
@@ -55,9 +55,10 @@ input:focus {
 }
 
 button {
+  height: 30px;
   border-radius: 8px;
-  border: 2px solid transparent;
-  padding: 0.6em 1.2em;
+/*   border: 2px solid transparent;*/
+  padding: 0 10px;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;

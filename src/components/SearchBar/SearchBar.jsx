@@ -3,7 +3,7 @@ import { Formik, Form, Field } from "formik";
 import toast, { Toaster } from "react-hot-toast";
 import css from "./SearchBar.module.css";
 
-export default SearchBar = forwardRef(function SearchBarComponent({ onSearch }, ref) {
+const SearchBar = forwardRef(function SearchBarComponent({ onSearch }, ref) {
   const handleSubmit = (values, actions) => {
     if (!values.query) {
       toast.error("Please, make your request!");
@@ -44,3 +44,4 @@ export default SearchBar = forwardRef(function SearchBarComponent({ onSearch }, 
   );
 });
 
+export default SearchBar;
