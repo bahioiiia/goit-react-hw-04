@@ -5,8 +5,7 @@ import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "../ImageModal/ImageModal";
-import { fetchPicturesWithQuery } from "../unsplash-api";
-import { IoArrowUpCircleSharp } from "react-icons/io5";
+import { fetchImages } from "../unsplash-api";
 import css from "./App.module.css";
 
 export default function App() {
@@ -34,7 +33,7 @@ export default function App() {
       setLoading(true);
       setQuery(newQuery);
       setPage(1);
-      const data = await fetchPicturesWithQuery(newQuery, 1);
+      const data = await fetchImages(newQuery, 1);
       setPictures(data.results);
       setTotalPages(data.total_pages);
     } catch (error) {
@@ -48,7 +47,7 @@ export default function App() {
     try {
       setLoading(true);
       const nextPage = page + 1;
-      const data = await fetchPicturesWithQuery(query, nextPage);
+      const data = await fetchImages(query, nextPage);
       setPictures((prevPictures) => [...prevPictures, ...data.results]);
       setPage(nextPage);
     } catch (error) {
@@ -68,7 +67,7 @@ export default function App() {
     setSelectedImage(null);
   };
 
-  const shouldShowLoadMore =
+  const showLoadMore =
     pictures.length > 0 && page < totalPages && !loading;
 
   return (
@@ -81,7 +80,7 @@ export default function App() {
           lastPictureRef={lastPictureRef}
         />
       )}
-      {shouldShowLoadMore && <LoadMoreBtn onClick={loadMorePictures} />}
+      {showLoadMore && <LoadMoreBtn onClick={loadMorePictures} />}
       {loading && <Loader />}
       {error && <ErrorMessage />}
       <ImageModal

@@ -10,7 +10,7 @@ const instance = axios.create({
   },
 });
 
-export const fetchPicturesWithQuery = async (query, page = 1) => {
+export const fetchImages = async (query, page = 1) => {
   const response = await instance.get(`/search/photos`, {
     params: {
       query: query,
